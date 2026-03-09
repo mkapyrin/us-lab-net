@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+import { WavyBackground } from '../components/ui/wavy-background';
+
 interface Props {
   title: string;
   pageTitle?: string;
@@ -32,15 +35,20 @@ const currentPath = Astro.url.pathname;
 </head>
 <body>
 
-  <!-- Animated background orbs -->
-  <div class="bg-orbs" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+  <!-- Wavy animated background -->
+  <div class="wavy-bg-fixed" aria-hidden="true">
+    <WavyBackground
+      client:load
+      colors={["#00f0ff", "#7b2ff7", "#f72585", "#818cf8", "#39ff14"]}
+      backgroundFill="#0a0a0f"
+      blur={12}
+      speed="slow"
+      waveOpacity={0.4}
+      waveWidth={60}
+      containerClassName="!h-full !fixed !inset-0 !pointer-events-none"
+      className="hidden"
+    />
   </div>
-
-  <!-- Grid overlay -->
-  <div class="bg-grid" aria-hidden="true"></div>
 
   <!-- Navbar -->
   <header class="navbar" id="navbar">
@@ -169,71 +177,12 @@ const currentPath = Astro.url.pathname;
     position: relative;
   }
 
-  /* ========== ANIMATED BACKGROUND ========== */
-  .bg-orbs {
+  /* ========== WAVY BACKGROUND ========== */
+  .wavy-bg-fixed {
     position: fixed;
     inset: 0;
-    pointer-events: none;
     z-index: 0;
-    overflow: hidden;
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.18;
-    animation: float-orb linear infinite;
-  }
-
-  .orb-1 {
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, var(--cyan), transparent 70%);
-    top: -200px; left: -150px;
-    animation-duration: 20s;
-    animation-name: float-1;
-  }
-
-  .orb-2 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, var(--purple), transparent 70%);
-    top: 40%; right: -200px;
-    animation-duration: 25s;
-    animation-name: float-2;
-  }
-
-  .orb-3 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, var(--magenta2), transparent 70%);
-    bottom: 10%; left: 30%;
-    animation-duration: 18s;
-    animation-name: float-3;
-  }
-
-  @keyframes float-1 {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33%      { transform: translate(80px, 60px) scale(1.1); }
-    66%      { transform: translate(-40px, 100px) scale(0.95); }
-  }
-  @keyframes float-2 {
-    0%,100% { transform: translate(0,0) scale(1); }
-    50%     { transform: translate(-120px, -80px) scale(1.15); }
-  }
-  @keyframes float-3 {
-    0%,100% { transform: translate(0,0) scale(1); }
-    40%     { transform: translate(60px, -90px) scale(1.05); }
-    80%     { transform: translate(-80px, 40px) scale(0.9); }
-  }
-
-  .bg-grid {
-    position: fixed;
-    inset: 0;
     pointer-events: none;
-    z-index: 0;
-    background-image:
-      linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
   }
 
   /* ========== NAVBAR ========== */
