@@ -1,0 +1,433 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stats = [
+  { value: '27+', label: 'Years in business' },
+  { value: '90+', label: 'Vendor partners' },
+  { value: '1997', label: 'Founded' },
+  { value: '24/7', label: 'Support available' },
+];
+
+const highlights = [
+  { icon: '⚡', title: 'AI-Powered Automation', desc: 'Leveraging machine learning and AI to automate software deployment, license optimization, and infrastructure management.' },
+  { icon: '◎', title: 'Cloud-Native Architecture', desc: 'Kubernetes, serverless, and microservices — we build and integrate solutions designed for modern cloud ecosystems.' },
+  { icon: '⬡', title: 'Zero-Trust Security', desc: 'Enterprise-grade security with zero-trust architecture, automated compliance, and continuous vulnerability assessment.' },
+];
+---
+
+<Layout title="US-Lab, Inc. Software logistics & development – Building the future IT, together">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <p class="section-label">US-Lab, Inc. — Est. 1997</p>
+        <h1 class="hero-title">
+          <span class="glitch" data-text="Why Choose">Why Choose</span>
+          <span class="hero-title-line2 grad-text">US-Lab?</span>
+        </h1>
+        <p class="hero-sub">
+          Next-generation software consultancy specializing in Cloud-Native Solutions, AI-Driven Automation, License Optimization, and Full-Stack Development. We bridge legacy systems with cutting-edge technologies to future-proof your business.
+        </p>
+        <div class="hero-ctas">
+          <a href="/services" class="btn-primary">Explore Services</a>
+          <a href="/contact" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="/images/hero.jpg" alt="US-Lab Software" width="800" height="600" loading="eager" />
+          <div class="hero-img-border"></div>
+          <div class="hero-img-corner tl"></div>
+          <div class="hero-img-corner tr"></div>
+          <div class="hero-img-corner bl"></div>
+          <div class="hero-img-corner br"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        {stats.map(stat => (
+          <div class="stat-item glass-card">
+            <span class="stat-value grad-text">{stat.value}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HIGHLIGHTS (3 pillars) ===== -->
+  <section class="section-pad highlights-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Our Core Promises</p>
+        <h2 class="neon-heading" style="font-size: clamp(1.8rem, 3.5vw, 2.6rem)">What Drives Us</h2>
+        <div class="neon-divider"></div>
+      </div>
+      <div class="highlights-grid">
+        {highlights.map((h, i) => (
+          <div class={`highlight-card glass-card accent-${i}`}>
+            <div class="highlight-icon">{h.icon}</div>
+            <h3 class="highlight-title">{h.title}</h3>
+            <p class="highlight-desc">{h.desc}</p>
+            <div class="highlight-bottom-bar"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT STRIP ===== -->
+  <section class="about-strip section-pad">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-text">
+          <p class="section-label">Since 1997</p>
+          <h2 class="neon-heading" style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1rem;">Our Focus</h2>
+          <p style="color: var(--text-dim); margin-bottom: 1.25rem;">
+            US-Lab, Inc. is at the forefront of the digital transformation wave. We integrate AI/ML pipelines, cloud-native architectures, and DevOps best practices into every solution we deliver. From automated license management with predictive analytics to full-stack platform engineering — we help organizations innovate faster while reducing operational overhead.
+          </p>
+          <p style="color: var(--text-dim); margin-bottom: 2rem;">
+            Our approach combines 27+ years of enterprise expertise with modern methodologies: Infrastructure as Code, CI/CD automation, container orchestration, and API-first design. We don't just sell software — we architect ecosystems.
+          </p>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; color: var(--cyan); margin-bottom: 0.75rem; font-size: 1.1rem; letter-spacing: 0.05em;">ENGINEERING & DEVELOPMENT</h3>
+          <p style="color: var(--text-dim); margin-bottom: 2rem;">
+            Our distributed engineering team builds with TypeScript, React, Next.js, Node.js, Python, Go, and Rust. We specialize in cloud-native microservices, serverless architectures, and AI-augmented development workflows. Our developers work across global time zones. Want to build the future with us? Send your CV to <a href="mailto:job@us-lab.net" style="color: var(--cyan);">job@us-lab.net</a>
+          </p>
+          <a href="/about" class="btn-primary">Learn More About Us</a>
+        </div>
+        <div class="about-img-wrap">
+          <div class="about-img-frame glass-card">
+            <img src="/images/home-4.jpg" alt="US-Lab office" width="600" height="800" loading="lazy" />
+            <div class="about-img-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA STRIP ===== -->
+  <section class="cta-strip section-pad-sm">
+    <div class="container">
+      <div class="cta-card glass-card">
+        <div class="cta-glow"></div>
+        <h2 class="neon-heading" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 0.75rem;">
+          Ready to transform your software stack?
+        </h2>
+        <p style="color: var(--text-dim); max-width: 560px; margin: 0 auto 2rem;">
+          Our expert team is standing by to help you find the right licenses, integrations, and development solutions.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+          <a href="/contact" class="btn-primary">Connect With Us</a>
+          <a href="/portfolio" class="btn-outline">View Vendor Index</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    padding: 9rem 0 5rem;
+    position: relative;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-title-line2 {
+    display: block;
+  }
+
+  /* Glitch effect */
+  .glitch {
+    display: block;
+    position: relative;
+    color: var(--white);
+    text-shadow: 0 0 20px rgba(0,240,255,0.3);
+    animation: glitch-main 4s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .glitch::before {
+    color: var(--cyan);
+    text-shadow: -2px 0 var(--cyan);
+    animation: glitch-top 4s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+
+  .glitch::after {
+    color: var(--magenta2);
+    text-shadow: 2px 0 var(--magenta2);
+    animation: glitch-bottom 4s infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+
+  @keyframes glitch-main {
+    0%, 90%, 100% { transform: none; }
+    92% { transform: skewX(-1deg); }
+    94% { transform: skewX(1deg); }
+  }
+
+  @keyframes glitch-top {
+    0%, 89%, 100% { transform: none; opacity: 0; }
+    90% { transform: translate(-2px, -2px); opacity: 0.8; }
+    92% { transform: translate(2px, -1px); opacity: 0.8; }
+    94% { transform: none; opacity: 0; }
+  }
+
+  @keyframes glitch-bottom {
+    0%, 89%, 100% { transform: none; opacity: 0; }
+    91% { transform: translate(2px, 2px); opacity: 0.8; }
+    93% { transform: translate(-2px, 1px); opacity: 0.8; }
+    95% { transform: none; opacity: 0; }
+  }
+
+  .hero-sub {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Hero image */
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .hero-img-wrap img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.75) saturate(1.2);
+  }
+
+  .hero-img-border {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0,240,255,0.25);
+    border-radius: var(--radius);
+    pointer-events: none;
+    box-shadow: inset 0 0 30px rgba(0,240,255,0.05), 0 0 40px rgba(0,240,255,0.1);
+    animation: border-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes border-pulse {
+    0%, 100% { border-color: rgba(0,240,255,0.25); box-shadow: inset 0 0 30px rgba(0,240,255,0.05), 0 0 40px rgba(0,240,255,0.1); }
+    50%       { border-color: rgba(0,240,255,0.5);  box-shadow: inset 0 0 40px rgba(0,240,255,0.1),  0 0 60px rgba(0,240,255,0.2); }
+  }
+
+  .hero-img-corner {
+    position: absolute;
+    width: 18px; height: 18px;
+    border-color: var(--cyan);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .hero-img-corner.tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+  .hero-img-corner.tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+  .hero-img-corner.bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+  .hero-img-corner.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+  /* ===== STATS ===== */
+  .stats-bar {
+    padding: 2rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ===== HIGHLIGHTS ===== */
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .highlight-card {
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .highlight-icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .highlight-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .highlight-desc {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .highlight-bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    transition: opacity 0.3s;
+    opacity: 0.6;
+  }
+
+  .highlight-card:hover .highlight-bottom-bar {
+    opacity: 1;
+  }
+
+  .accent-0 .highlight-bottom-bar { background: linear-gradient(90deg, var(--cyan), var(--purple)); }
+  .accent-1 .highlight-bottom-bar { background: linear-gradient(90deg, var(--magenta2), var(--purple)); }
+  .accent-2 .highlight-bottom-bar { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+
+  .accent-0:hover { box-shadow: 0 0 30px rgba(0,240,255,0.12), 0 8px 40px rgba(0,0,0,0.4) !important; }
+  .accent-1:hover { box-shadow: 0 0 30px rgba(247,37,133,0.12), 0 8px 40px rgba(0,0,0,0.4) !important; }
+  .accent-2:hover { box-shadow: 0 0 30px rgba(57,255,20,0.1), 0 8px 40px rgba(0,0,0,0.4) !important; }
+
+  /* ===== ABOUT SPLIT ===== */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-img-frame {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .about-img-frame img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8) saturate(1.1);
+  }
+
+  .about-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,240,255,0.06), rgba(123,47,247,0.06));
+    pointer-events: none;
+  }
+
+  /* ===== CTA STRIP ===== */
+  .cta-card {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,240,255,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .about-split { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-img-wrap img { height: 280px; }
+  }
+</style>

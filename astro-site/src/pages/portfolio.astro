@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const vendors = [
+  'ABBYY', 'ACD Systems', 'Acronis', 'Act!', 'Actian', 'Allround Automation',
+  'Altova', 'AppEnsure', 'Arxscan Inc.', 'Axure', 'BEC Technologies',
+  'Bitdefender', 'Canvas GFX', 'Carbonite', 'Century Software', 'Circadence',
+  'Cloudian', 'Alludo (Corel)', 'Datadobi', 'DataCore Software', 'Delinea',
+  'Dotmatics', 'EaseUS Software', 'edgeNEXUS', 'Famatech', 'Flexera Software',
+  'Fortra', 'Golden Software', 'Idera', 'Imperva', 'Infragistics',
+  'Intel Software', 'JetBrains', 'Macrium Software', 'Markzware', 'MG-Soft',
+  '/n Software', 'Nakivo', 'Navicat', 'Nero', 'Neuxpower', 'Nevron',
+  'Paessler', 'Progress (Telerik)', 'Redgate', 'Sapien Technologies',
+  'Scooter Software', 'Seagull Scientific', 'SEP', 'SimpleWan', 'SlickEdit',
+  'Smartbear Software', 'SmartDraw', 'Smith Micro Software', 'SoftwareFX',
+  'SolarWinds', 'Sparx', 'Stylus Studio', 'Super Micro Computer', 'SystemTools',
+  'TechSmith', 'Teklynx', 'VanDyke', 'WhiteSmoke', 'WinRAR',
+];
+
+// Assign a deterministic color accent to each vendor for visual variety
+const accents = ['cyan', 'magenta', 'purple', 'green'];
+---
+
+<Layout title="Portfolio – US-Lab, Inc. Software logistics & development" pageTitle="Portfolio">
+
+  <!-- ===== INTRO ===== -->
+  <section class="section-pad-sm">
+    <div class="container">
+      <div class="portfolio-intro glass-card">
+        <div class="intro-glow"></div>
+        <div class="intro-inner">
+          <div>
+            <p class="section-label">Vendor Index</p>
+            <h2 class="neon-heading" style="font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1rem;">
+              Product / Service Categories
+            </h2>
+            <p style="color: var(--text-dim); max-width: 640px; line-height: 1.75;">
+              Browse our Vendor Index to see the leading firms and products that we represent directly or through distribution partners. Please note that some selected products or product lines may not be available to solution providers in certain regions. <a href="/contact" style="color: var(--cyan);">Contact us</a> for more information.
+            </p>
+          </div>
+          <div class="intro-stat">
+            <span class="intro-number grad-text">{vendors.length}</span>
+            <span class="intro-stat-label">Active Vendors</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VENDOR GRID ===== -->
+  <section class="section-pad-sm vendor-section">
+    <div class="container">
+      <div class="vendor-grid">
+        {vendors.map((vendor, i) => {
+          const accent = accents[i % accents.length];
+          return (
+            <span class={`vendor-chip vendor-chip-${accent}`}>
+              <span class="vendor-dot"></span>
+              {vendor}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="section-pad-sm">
+    <div class="container" style="text-align: center;">
+      <p class="section-label" style="justify-content: center; display: flex;">Need a specific vendor?</p>
+      <h2 class="neon-heading" style="font-size: clamp(1.4rem, 3vw, 2rem); margin: 0.5rem 0 1rem;">
+        Can't find what you're looking for?
+      </h2>
+      <p style="color: var(--text-dim); max-width: 480px; margin: 0 auto 2rem;">
+        Our network extends far beyond this index. Get in touch and we'll find the right vendor or solution for your needs.
+      </p>
+      <a href="/contact" class="btn-primary">Contact Our Team</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== INTRO ===== */
+  .portfolio-intro {
+    padding: 2.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-glow {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(0,240,255,0.07), transparent 70%);
+    pointer-events: none;
+  }
+
+  .intro-inner {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .intro-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .intro-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .intro-stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 0.35rem;
+  }
+
+  /* ===== VENDOR GRID ===== */
+  .vendor-section {
+    padding-top: 0;
+  }
+
+  .vendor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .vendor-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: default;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.15s;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+  }
+
+  .vendor-chip:hover {
+    transform: translateY(-2px);
+  }
+
+  .vendor-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Cyan chips */
+  .vendor-chip-cyan {
+    color: rgba(0,240,255,0.85);
+  }
+  .vendor-chip-cyan .vendor-dot {
+    background: var(--cyan);
+    box-shadow: 0 0 4px var(--cyan);
+  }
+  .vendor-chip-cyan:hover {
+    background: rgba(0,240,255,0.07);
+    border-color: rgba(0,240,255,0.3);
+    box-shadow: 0 0 12px rgba(0,240,255,0.12);
+    color: var(--cyan);
+  }
+
+  /* Magenta chips */
+  .vendor-chip-magenta {
+    color: rgba(247,37,133,0.85);
+  }
+  .vendor-chip-magenta .vendor-dot {
+    background: var(--magenta2);
+    box-shadow: 0 0 4px var(--magenta2);
+  }
+  .vendor-chip-magenta:hover {
+    background: rgba(247,37,133,0.07);
+    border-color: rgba(247,37,133,0.3);
+    box-shadow: 0 0 12px rgba(247,37,133,0.12);
+    color: var(--magenta2);
+  }
+
+  /* Purple chips */
+  .vendor-chip-purple {
+    color: rgba(168,85,247,0.85);
+  }
+  .vendor-chip-purple .vendor-dot {
+    background: #a855f7;
+    box-shadow: 0 0 4px #a855f7;
+  }
+  .vendor-chip-purple:hover {
+    background: rgba(123,47,247,0.07);
+    border-color: rgba(123,47,247,0.3);
+    box-shadow: 0 0 12px rgba(123,47,247,0.12);
+    color: #a855f7;
+  }
+
+  /* Green chips */
+  .vendor-chip-green {
+    color: rgba(57,255,20,0.8);
+  }
+  .vendor-chip-green .vendor-dot {
+    background: var(--green);
+    box-shadow: 0 0 4px var(--green);
+  }
+  .vendor-chip-green:hover {
+    background: rgba(57,255,20,0.05);
+    border-color: rgba(57,255,20,0.25);
+    box-shadow: 0 0 12px rgba(57,255,20,0.1);
+    color: var(--green);
+  }
+</style>

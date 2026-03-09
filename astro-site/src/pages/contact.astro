@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const contacts = [
+  {
+    label: 'General Questions',
+    email: 'info@us-lab.net',
+    desc: 'For any general enquiries about our products or services.',
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M14 9v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+    accent: 'cyan',
+  },
+  {
+    label: 'Sales',
+    email: 'sales@us-lab.net',
+    desc: 'Ready to purchase? Our sales team will find you the best deal.',
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4h4l3 10h10l2-7H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="12" cy="22" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="20" cy="22" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+    </svg>`,
+    accent: 'magenta',
+  },
+  {
+    label: 'Vacancies',
+    email: 'job@us-lab.net',
+    desc: 'Interested in joining our global team? Send us your CV.',
+    icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="8" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M10 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M4 14h20" stroke="currentColor" stroke-width="1.5"/>
+    </svg>`,
+    accent: 'purple',
+  },
+];
+---
+
+<Layout title="Contact Us – US-Lab, Inc. Software logistics & development" pageTitle="Contact Us">
+
+  <!-- ===== INTRO ===== -->
+  <section class="section-pad-sm">
+    <div class="container">
+      <div class="contact-intro">
+        <p class="section-label">Reach Out</p>
+        <h2 class="neon-heading" style="font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 1rem;">
+          Let's start a conversation
+        </h2>
+        <p style="color: var(--text-dim); max-width: 500px; font-size: 1.05rem; line-height: 1.75;">
+          Get in touch and we'll get back to you as soon as we can. We look forward to hearing from you!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT CARDS ===== -->
+  <section class="section-pad-sm">
+    <div class="container">
+      <div class="contact-grid">
+        {contacts.map(c => (
+          <div class={`contact-card glass-card contact-${c.accent}`}>
+            <div class={`contact-icon-wrap contact-icon-${c.accent}`} set:html={c.icon} />
+            <div class="contact-info">
+              <p class="contact-label">{c.label}</p>
+              <a href={`mailto:${c.email}`} class={`contact-email contact-email-${c.accent}`}>
+                {c.email}
+              </a>
+              <p class="contact-desc">{c.desc}</p>
+            </div>
+            <div class="contact-card-glow"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ADDITIONAL INFO ===== -->
+  <section class="section-pad-sm">
+    <div class="container">
+      <div class="info-strip glass-card">
+        <div class="info-strip-inner">
+          <div class="info-item">
+            <span class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <circle cx="11" cy="11" r="9" stroke="var(--cyan)" stroke-width="1.5"/>
+                <path d="M11 7v5l3 2" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div>
+              <p class="info-label">Response Time</p>
+              <p class="info-value">24/7 — We respond promptly</p>
+            </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-item">
+            <span class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M3 4h16a1 1 0 011 1v11a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="var(--cyan)" stroke-width="1.5"/>
+                <path d="M2 5l9 8 9-8" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div>
+              <p class="info-label">Primary Contact</p>
+              <p class="info-value">
+                <a href="mailto:info@us-lab.net" style="color: var(--cyan);">info@us-lab.net</a>
+              </p>
+            </div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-item">
+            <span class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="var(--cyan)" stroke-width="1.5"/>
+                <circle cx="11" cy="9" r="2.5" stroke="var(--cyan)" stroke-width="1.5"/>
+              </svg>
+            </span>
+            <div>
+              <p class="info-label">Global Reach</p>
+              <p class="info-value">Electronic delivery worldwide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== INTRO ===== */
+  .contact-intro {
+    padding-top: 0;
+  }
+
+  /* ===== CONTACT CARDS ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-icon-wrap {
+    width: 56px; height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .contact-icon-cyan    { color: var(--cyan);    background: rgba(0,240,255,0.08); }
+  .contact-icon-magenta { color: var(--magenta2); background: rgba(247,37,133,0.08); }
+  .contact-icon-purple  { color: #a855f7;         background: rgba(123,47,247,0.08); }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+
+  .contact-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .contact-email {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: text-shadow 0.2s;
+    word-break: break-all;
+  }
+
+  .contact-email-cyan    { color: var(--cyan); }
+  .contact-email-magenta { color: var(--magenta2); }
+  .contact-email-purple  { color: #a855f7; }
+
+  .contact-email-cyan:hover    { text-shadow: 0 0 12px var(--cyan); color: var(--cyan); }
+  .contact-email-magenta:hover { text-shadow: 0 0 12px var(--magenta2); color: var(--magenta2); }
+  .contact-email-purple:hover  { text-shadow: 0 0 12px #a855f7; color: #a855f7; }
+
+  .contact-desc {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-top: 0.25rem;
+  }
+
+  .contact-card-glow {
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .contact-cyan    .contact-card-glow { background: radial-gradient(circle, rgba(0,240,255,0.08), transparent 70%); }
+  .contact-magenta .contact-card-glow { background: radial-gradient(circle, rgba(247,37,133,0.08), transparent 70%); }
+  .contact-purple  .contact-card-glow { background: radial-gradient(circle, rgba(123,47,247,0.08), transparent 70%); }
+
+  .contact-card:hover .contact-card-glow {
+    opacity: 1;
+  }
+
+  .contact-cyan:hover    { border-color: rgba(0,240,255,0.3) !important; box-shadow: 0 0 30px rgba(0,240,255,0.08), 0 8px 40px rgba(0,0,0,0.4) !important; }
+  .contact-magenta:hover { border-color: rgba(247,37,133,0.3) !important; box-shadow: 0 0 30px rgba(247,37,133,0.08), 0 8px 40px rgba(0,0,0,0.4) !important; }
+  .contact-purple:hover  { border-color: rgba(123,47,247,0.3) !important; box-shadow: 0 0 30px rgba(123,47,247,0.08), 0 8px 40px rgba(0,0,0,0.4) !important; }
+
+  /* ===== INFO STRIP ===== */
+  .info-strip {
+    padding: 1.75rem 2.5rem;
+  }
+
+  .info-strip-inner {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  .info-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .info-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.25rem;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .info-divider {
+    width: 1px;
+    height: 48px;
+    background: var(--glass-border);
+    flex-shrink: 0;
+    margin: 0 2rem;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .info-strip-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    .info-divider {
+      width: 100%; height: 1px;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .info-strip { padding: 1.5rem; }
+  }
+</style>

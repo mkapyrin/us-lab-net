@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pillars = [
+  {
+    label: 'Our Approach',
+    title: 'Technology-First Methodology',
+    body: 'We combine decades of enterprise experience with a modern, agile approach. Our methodology integrates DevOps, Infrastructure as Code, and AI-assisted decision-making to deliver solutions faster and more reliably than traditional consultancies.',
+    accent: 'cyan',
+  },
+  {
+    label: 'Licensing & Cloud',
+    title: 'Smart License Optimization',
+    body: 'Our AI-powered license management platform analyzes your software usage patterns and recommends optimal licensing strategies — whether on-premise, SaaS, or hybrid cloud. We help enterprises reduce software spend by up to 40% through intelligent consolidation.',
+    accent: 'magenta',
+  },
+  {
+    label: 'Support & DevOps',
+    title: '24/7 Proactive Support',
+    body: 'We go beyond reactive support. Our team implements monitoring, alerting, and automated remediation pipelines. With predictive analytics and continuous observability, we identify and resolve issues before they impact your business.',
+    accent: 'purple',
+  },
+];
+---
+
+<Layout title="About Us – US-Lab, Inc. Software logistics & development" pageTitle="About Us">
+
+  <!-- ===== TOP SPLIT ===== -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-img-col">
+          <div class="about-img-frame glass-card">
+            <img src="/images/about-us-1.jpg" alt="About US-Lab" width="960" height="795" loading="lazy" />
+            <div class="img-overlay"></div>
+            <!-- Corner brackets -->
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+          </div>
+          <!-- Floating tag -->
+          <div class="since-tag glass-card">
+            <span class="since-year grad-text">1997</span>
+            <span class="since-label">Est.</span>
+          </div>
+        </div>
+
+        <div class="about-text-col">
+          <p class="section-label">Who We Are</p>
+          <h2 class="neon-heading" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem;">
+            Our Approach
+          </h2>
+          <p style="color: var(--text-dim); margin-bottom: 1.25rem; font-size: 1.05rem;">
+            Founded in 1997, we've evolved from a traditional software distributor into a modern technology partner. Today we leverage AI, cloud-native architectures, and automation to deliver solutions that scale with your ambitions.
+          </p>
+          <p style="color: var(--text-dim); margin-bottom: 2.5rem; font-size: 1.05rem;">
+            Our team combines deep enterprise expertise with cutting-edge engineering practices — from Kubernetes orchestration to ML-driven analytics — helping businesses of all sizes navigate digital transformation with confidence.
+          </p>
+          <a href="/contact" class="btn-primary">Talk to Our Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THREE PILLARS ===== -->
+  <section class="pillars-section section-pad">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 3rem;">
+        <p class="section-label">Core Values</p>
+        <h2 class="neon-heading" style="font-size: clamp(1.8rem, 3.5vw, 2.6rem);">What Makes Us Different</h2>
+        <div class="neon-divider"></div>
+      </div>
+      <div class="pillars-grid">
+        {pillars.map(p => (
+          <div class={`pillar-card glass-card pillar-${p.accent}`}>
+            <p class="pillar-label">{p.label}</p>
+            <h3 class="pillar-title">{p.title}</h3>
+            <div class="pillar-line"></div>
+            <p class="pillar-body">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM CTA ===== -->
+  <section class="section-pad-sm">
+    <div class="container">
+      <div class="bottom-cta glass-card">
+        <div class="bottom-cta-glow"></div>
+        <p class="section-label" style="margin-bottom: 0.75rem;">Ready to get started?</p>
+        <h2 class="neon-heading" style="font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 0.75rem;">
+          Let's build something great together
+        </h2>
+        <p style="color: var(--text-dim); max-width: 500px; margin: 0 auto 2rem;">
+          Whether you need licensing advice, software development, or dedicated support — we've got you covered.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+          <a href="/services" class="btn-primary">View Services</a>
+          <a href="/contact" class="btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== SPLIT ===== */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-img-col {
+    position: relative;
+  }
+
+  .about-img-frame {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .about-img-frame img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8) saturate(1.1);
+  }
+
+  .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,240,255,0.05), rgba(123,47,247,0.07));
+    pointer-events: none;
+  }
+
+  .corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--cyan);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .corner.tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+  .corner.tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+  .corner.bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+  .corner.br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+  .since-tag {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    background: rgba(10,10,15,0.95) !important;
+  }
+
+  .since-year {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .since-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ===== PILLARS ===== */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pillar-card {
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-cyan .pillar-label  { color: var(--cyan); }
+  .pillar-magenta .pillar-label { color: var(--magenta2); }
+  .pillar-purple .pillar-label  { color: #a855f7; }
+
+  .pillar-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .pillar-line {
+    height: 2px;
+    width: 40px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .pillar-cyan .pillar-line    { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+  .pillar-magenta .pillar-line { background: var(--magenta2); box-shadow: 0 0 8px var(--magenta2); }
+  .pillar-purple .pillar-line  { background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+
+  .pillar-body {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .pillar-cyan:hover    { border-color: rgba(0,240,255,0.35) !important; box-shadow: 0 0 30px rgba(0,240,255,0.1), 0 8px 40px rgba(0,0,0,0.4) !important; }
+  .pillar-magenta:hover { border-color: rgba(247,37,133,0.35) !important; box-shadow: 0 0 30px rgba(247,37,133,0.1), 0 8px 40px rgba(0,0,0,0.4) !important; }
+  .pillar-purple:hover  { border-color: rgba(123,47,247,0.35) !important; box-shadow: 0 0 30px rgba(123,47,247,0.1), 0 8px 40px rgba(0,0,0,0.4) !important; }
+
+  /* ===== BOTTOM CTA ===== */
+  .bottom-cta {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-cta-glow {
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(123,47,247,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .about-split {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .pillars-grid {
+      grid-template-columns: 1fr;
+    }
+    .since-tag {
+      right: 1rem;
+      bottom: -0.5rem;
+    }
+  }
+</style>
